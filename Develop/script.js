@@ -1,11 +1,11 @@
-// Assignment Code
+// Assignment Code = document.getElementById
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  //grabbing textbox ID password (HTML) 1 - VAR 2 - HTML - input uses .value
   passwordText.value = password;
 }
 
@@ -22,31 +22,29 @@ function generatePassword() {
   );
 
   if (passwordLength >= 8 && passwordLength <= 128) {
-    var lowerCaseInput = prompt(
-      "Do you want to include lowercase characters? Enter y for yes"
+    var lowerCaseInput = confirm(
+      "Do you want to include lowercase characters?"
     );
-    if (lowerCaseInput === "y") {
+    if (lowerCaseInput === true) {
       options.push("lowercase");
     }
 
-    var upperCaseInput = prompt(
-      "Do you want to include uppercase characters? Enter y for yes"
+    var upperCaseInput = confirm(
+      "Do you want to include uppercase characters?"
     );
-    if (upperCaseInput === "y") {
+    if (upperCaseInput === true) {
       options.push("uppercase");
     }
 
-    var numericCaseInput = prompt(
-      "Do you want to include numeric characters? Enter y for yes"
+    var numericCaseInput = confirm(
+      "Do you want to include numeric characters?"
     );
-    if (numericCaseInput === "y") {
+    if (numericCaseInput === true) {
       options.push("numeric");
     }
 
-    var specialInput = prompt(
-      "Do you want to include special characters? Enter y for yes"
-    );
-    if (specialInput === "y") {
+    var specialInput = confirm("Do you want to include special characters?");
+    if (specialInput === true) {
       options.push("special");
     }
 
@@ -72,6 +70,7 @@ function generatePassword() {
             specialChars[Math.floor(Math.random() * specialChars.length)];
         }
 
+        //runs adding characters until end of input length add a character to genreatedPassword var
         generatedPassword = generatedPassword + characterToInsert;
         console.log(generatedPassword);
       }
