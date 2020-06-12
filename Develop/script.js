@@ -73,6 +73,7 @@ function generatePassword() {
         }
 
         generatedPassword = generatedPassword + characterToInsert;
+        console.log(generatedPassword);
       }
 
       return generatedPassword;
